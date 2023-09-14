@@ -1,0 +1,66 @@
+/**
+ * Ask user for a long and short substring then report it. 
+ * Finally prompt what replacement string and 
+ * show what the long string would be with the substring replaced by the replacement string.
+ *
+ * @author Tariq Salama
+ * @version 20230905
+ */
+import java.util.Scanner;
+
+public class FunWithStrings {
+
+    public static void main(String[] args) {
+       Scanner input = new Scanner(System.in);
+       
+       //It takes user input for a long string
+        System.out.print("Enter a long string: ");
+        String sentence = input.nextLine();
+        
+        //It takes user input for a substring
+        System.out.print("Enter a substring: ");
+        String substring = input.nextLine();
+        int stringLength = sentence.length();
+        int subStringLength = substring.length();
+        
+        //calculates and displays the length of the string
+        System.out.println("Length of your string: " + stringLength);
+        
+        //calculates and displays the length of the substring
+        System.out.println("Length of your substring: " + subStringLength);
+        int startingPos = sentence.indexOf(substring);
+        
+        //It finds and displays the starting position of the substring in the long string
+        System.out.println("Starting position of your substring: " + startingPos);
+        String before = sentence.substring(0, startingPos);
+        
+        //It extracts and displays the part of the string before the substring
+        System.out.println("String before your substring: " + before);
+        String after = sentence.substring(startingPos + subStringLength);
+        
+        //It extracts and displays the part of the string after the substring
+        System.out.println("String after your substring: " + after);
+        
+        //asks the user to enter a position
+        System.out.print("Enter a position between 0 and " + (stringLength - 1) + ": ");
+        int num = input.nextInt();
+        char pos = sentence.charAt(num);
+        
+        //displays the character at that position 
+        System.out.println("The character at position " + num + " is " + pos);
+        input.nextLine();
+        
+        //asks the user to enter a replacement string
+        System.out.print("Enter a replacement string: ");
+        String replace = input.nextLine();
+        String newsen = sentence.replace(substring ,replace);
+        
+        //replaces all occurrences of the substring with the replacement string in the original string
+        System.out.println("Your new string is: " + newsen);
+        
+        //prints the updated string and says "Goodbye!"
+        System.out.println("Goodbye!");
+       
+
+    }
+}
